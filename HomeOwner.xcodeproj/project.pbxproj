@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A7D6B4F11F938672004F093C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F01F938672004F093C /* AppDelegate.swift */; };
-		A7D6B4F31F938672004F093C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F21F938672004F093C /* ViewController.swift */; };
+		A7D6B4F31F938672004F093C /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F21F938672004F093C /* ItemsViewController.swift */; };
 		A7D6B4F61F938672004F093C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D6B4F41F938672004F093C /* Main.storyboard */; };
 		A7D6B4F81F938672004F093C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7D6B4F71F938672004F093C /* Assets.xcassets */; };
 		A7D6B4FB1F938672004F093C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D6B4F91F938672004F093C /* LaunchScreen.storyboard */; };
-		A7D6B5061F938672004F093C /* HomeOwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B5051F938672004F093C /* HomeOwnerTests.swift */; };
-		A7D6B5111F938672004F093C /* HomeOwnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B5101F938672004F093C /* HomeOwnerUITests.swift */; };
+		A7D6B51F1F938A11004F093C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B51E1F938A11004F093C /* Item.swift */; };
+		A7D6B5211F949032004F093C /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B5201F949032004F093C /* Items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,17 +36,15 @@
 /* Begin PBXFileReference section */
 		A7D6B4ED1F938672004F093C /* HomeOwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeOwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D6B4F01F938672004F093C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7D6B4F21F938672004F093C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7D6B4F21F938672004F093C /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		A7D6B4F51F938672004F093C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7D6B4F71F938672004F093C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7D6B4FA1F938672004F093C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7D6B4FC1F938672004F093C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D6B5011F938672004F093C /* HomeOwnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeOwnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7D6B5051F938672004F093C /* HomeOwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOwnerTests.swift; sourceTree = "<group>"; };
-		A7D6B5071F938672004F093C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7D6B50C1F938672004F093C /* HomeOwnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeOwnerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7D6B5101F938672004F093C /* HomeOwnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOwnerUITests.swift; sourceTree = "<group>"; };
-		A7D6B5121F938672004F093C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7D6B50C1F938672004F093C /* .xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = .xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D6B51E1F938A11004F093C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A7D6B5201F949032004F093C /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				A7D6B4EF1F938672004F093C /* HomeOwner */,
-				A7D6B5041F938672004F093C /* HomeOwnerTests */,
-				A7D6B50F1F938672004F093C /* HomeOwnerUITests */,
 				A7D6B4EE1F938672004F093C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,7 +85,7 @@
 			children = (
 				A7D6B4ED1F938672004F093C /* HomeOwner.app */,
 				A7D6B5011F938672004F093C /* HomeOwnerTests.xctest */,
-				A7D6B50C1F938672004F093C /* HomeOwnerUITests.xctest */,
+				A7D6B50C1F938672004F093C /* .xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,31 +94,15 @@
 			isa = PBXGroup;
 			children = (
 				A7D6B4F01F938672004F093C /* AppDelegate.swift */,
-				A7D6B4F21F938672004F093C /* ViewController.swift */,
+				A7D6B4F21F938672004F093C /* ItemsViewController.swift */,
 				A7D6B4F41F938672004F093C /* Main.storyboard */,
+				A7D6B51E1F938A11004F093C /* Item.swift */,
+				A7D6B5201F949032004F093C /* Items.swift */,
 				A7D6B4F71F938672004F093C /* Assets.xcassets */,
 				A7D6B4F91F938672004F093C /* LaunchScreen.storyboard */,
 				A7D6B4FC1F938672004F093C /* Info.plist */,
 			);
 			path = HomeOwner;
-			sourceTree = "<group>";
-		};
-		A7D6B5041F938672004F093C /* HomeOwnerTests */ = {
-			isa = PBXGroup;
-			children = (
-				A7D6B5051F938672004F093C /* HomeOwnerTests.swift */,
-				A7D6B5071F938672004F093C /* Info.plist */,
-			);
-			path = HomeOwnerTests;
-			sourceTree = "<group>";
-		};
-		A7D6B50F1F938672004F093C /* HomeOwnerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A7D6B5101F938672004F093C /* HomeOwnerUITests.swift */,
-				A7D6B5121F938672004F093C /* Info.plist */,
-			);
-			path = HomeOwnerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +158,7 @@
 			);
 			name = HomeOwnerUITests;
 			productName = HomeOwnerUITests;
-			productReference = A7D6B50C1F938672004F093C /* HomeOwnerUITests.xctest */;
+			productReference = A7D6B50C1F938672004F093C /* .xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -193,6 +173,7 @@
 				TargetAttributes = {
 					A7D6B4EC1F938672004F093C = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					A7D6B5001F938672004F093C = {
@@ -202,6 +183,7 @@
 					};
 					A7D6B50B1F938672004F093C = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A7D6B4EC1F938672004F093C;
 					};
@@ -259,7 +241,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D6B4F31F938672004F093C /* ViewController.swift in Sources */,
+				A7D6B5211F949032004F093C /* Items.swift in Sources */,
+				A7D6B4F31F938672004F093C /* ItemsViewController.swift in Sources */,
+				A7D6B51F1F938A11004F093C /* Item.swift in Sources */,
 				A7D6B4F11F938672004F093C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +252,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D6B5061F938672004F093C /* HomeOwnerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D6B5111F938672004F093C /* HomeOwnerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,12 +408,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFWJVRR5ZT;
 				INFOPLIST_FILE = HomeOwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = exp.HomeOwner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeOwner/HomeOwner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,12 +426,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFWJVRR5ZT;
 				INFOPLIST_FILE = HomeOwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = exp.HomeOwner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeOwner/HomeOwner-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -490,12 +477,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFWJVRR5ZT;
 				INFOPLIST_FILE = HomeOwnerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = exp.HomeOwnerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeOwnerUITests/HomeOwnerUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HomeOwner;
@@ -506,12 +496,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFWJVRR5ZT;
 				INFOPLIST_FILE = HomeOwnerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = exp.HomeOwnerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeOwnerUITests/HomeOwnerUITests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HomeOwner;
