@@ -37,6 +37,7 @@ class ItemsViewController: UITableViewController
         let inset = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = inset
         tableView.scrollIndicatorInsets = inset
+        
    
         
     }
@@ -104,13 +105,30 @@ class ItemsViewController: UITableViewController
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE")
         {_,indexPath in
             let itemToDel = self.items.itemsList.filter(self.filters[indexPath.section])[indexPath.row]
-            print(indexPath.section, itemToDel.value, itemToDel.name)
-            if let ind = self.items.itemsList.index(of: itemToDel)
-            {
+            let deleteAC = UIAlertController(title: "\(itemToDel.name) - \(itemToDel.value)", message: "Are you sure you want to delete this item?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let delAction = UIAlertAction(title: "DELETE", style: .destructive)
+            {_ in
+             if let ind = self.items.itemsList.index(of: itemToDel)
+             {
+                print(indexPath.section, itemToDel.value, itemToDel.name)
                 self.items.itemsList.remove(at: ind)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
+             }
             }
+            
+            let cnxAction = UIAlertAction(title: "CANCEL", style: .cancel)
+            {_ in
+               print ("action cancelled by user")
+            }
+            
+            deleteAC.addAction(delAction)
+            deleteAC.addAction(cnxAction)
+            deleteAC.preferredAction = cnxAction
+            
+            self.present(deleteAC, animated: true, completion: nil)
+            
             
         }
         let addAction = UITableViewRowAction(style: .normal, title: "ADD", handler: {_,_ in })
