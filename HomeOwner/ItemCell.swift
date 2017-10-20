@@ -5,7 +5,8 @@ class ItemCell: UITableViewCell
  @IBOutlet var nameLabel: UILabel!
  @IBOutlet var serialLabel: UILabel!
  @IBOutlet var valueLabel: UILabel!
-    
+  
+ 
  override func awakeFromNib()
  {
     super.awakeFromNib()

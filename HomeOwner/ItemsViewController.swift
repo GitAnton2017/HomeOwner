@@ -18,7 +18,7 @@ class ItemsViewController: UITableViewController
         {
          
           let ip = IndexPath(row: ind, section: s)
-          tableView.insertRows(at: [ip], with: .middle)
+          tableView.insertRows(at: [ip], with: .automatic)
           tableView.reloadData()
         }
     }
@@ -30,6 +30,7 @@ class ItemsViewController: UITableViewController
     
     }
     
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -44,6 +45,13 @@ class ItemsViewController: UITableViewController
    
         
     }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let newCell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
@@ -78,7 +86,7 @@ class ItemsViewController: UITableViewController
         {
          items.itemsList.remove(at: ind)
          tableView.deleteRows(at: [indexPath], with: .fade)
-         tableView.reloadData()
+        
         }
     
       }
@@ -101,6 +109,7 @@ class ItemsViewController: UITableViewController
         if sourceIndexPath.section == destinationIndexPath.section {return}
         tableView.moveRow(at: destinationIndexPath, to: sourceIndexPath)
         tableView.reloadData()
+        
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
@@ -138,6 +147,16 @@ class ItemsViewController: UITableViewController
         let addAction = UITableViewRowAction(style: .normal, title: "ADD", handler: {_,_ in })
         addAction.backgroundColor = UIColor.green
         return [addAction, deleteAction]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+     if let segID = segue.identifier, segID == "showItem", let ip = tableView.indexPathForSelectedRow
+     {
+       let item_edit = items.itemsList.filter(filters[ip.section])[ip.row]
+       (segue.destination as! DetailViewController).editedItem = item_edit
+
+     }
     }
     
     /*override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
