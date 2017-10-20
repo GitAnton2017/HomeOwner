@@ -37,17 +37,21 @@ class ItemsViewController: UITableViewController
         let inset = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = inset
         tableView.scrollIndicatorInsets = inset
+        tableView.estimatedRowHeight = 65
+        tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.rowHeight = 65
         
    
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let newCell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let newCell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
 
         let its = items.itemsList.filter(filters[indexPath.section])/*.sorted(by: {$0.value<$1.value})*/
-        newCell.textLabel?.text = its[indexPath.row].name
-        newCell.detailTextLabel?.text = String(its[indexPath.row].value)
+        newCell.nameLabel.text = its[indexPath.row].name
+        newCell.valueLabel.text = "$\(its[indexPath.row].value)"
+        newCell.serialLabel.text = its[indexPath.row].serial
         return newCell
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A71068911F98B54A0024EFDC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71068901F98B54A0024EFDC /* ItemCell.swift */; };
+		A71068931F99116B0024EFDC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71068921F99116B0024EFDC /* DetailViewController.swift */; };
 		A7D6B4F11F938672004F093C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F01F938672004F093C /* AppDelegate.swift */; };
 		A7D6B4F31F938672004F093C /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F21F938672004F093C /* ItemsViewController.swift */; };
 		A7D6B4F61F938672004F093C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D6B4F41F938672004F093C /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A71068901F98B54A0024EFDC /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		A71068921F99116B0024EFDC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A7D6B4ED1F938672004F093C /* HomeOwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeOwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D6B4F01F938672004F093C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7D6B4F21F938672004F093C /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				A7D6B4F01F938672004F093C /* AppDelegate.swift */,
 				A7D6B4F21F938672004F093C /* ItemsViewController.swift */,
 				A7D6B4F41F938672004F093C /* Main.storyboard */,
+				A71068921F99116B0024EFDC /* DetailViewController.swift */,
+				A71068901F98B54A0024EFDC /* ItemCell.swift */,
 				A7D6B51E1F938A11004F093C /* Item.swift */,
 				A7D6B5201F949032004F093C /* Items.swift */,
 				A7D6B4F71F938672004F093C /* Assets.xcassets */,
@@ -244,7 +250,9 @@
 				A7D6B5211F949032004F093C /* Items.swift in Sources */,
 				A7D6B4F31F938672004F093C /* ItemsViewController.swift in Sources */,
 				A7D6B51F1F938A11004F093C /* Item.swift in Sources */,
+				A71068931F99116B0024EFDC /* DetailViewController.swift in Sources */,
 				A7D6B4F11F938672004F093C /* AppDelegate.swift in Sources */,
+				A71068911F98B54A0024EFDC /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
