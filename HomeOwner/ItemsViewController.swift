@@ -9,7 +9,7 @@ class ItemsViewController: UITableViewController
  let headers  = ["Items >= $50", "Items < $50"]
  let footers  = ["End of section >= $50", "End of section <$50"]
     
-    @IBAction func addItem(_ sender: UIButton)
+    @IBAction func addItem(_ sender: UIBarButtonItem)
     {
         let newItem = items.createItem()
         let s = newItem.value>=50 ? 0 : 1
@@ -23,13 +23,18 @@ class ItemsViewController: UITableViewController
         }
     }
     
-    @IBAction func toggleEditMode(_ sender: UIButton)
+   /* @IBAction func toggleEditMode(_ sender: UIBarButtonItem)
     {
      setEditing(!isEditing, animated: true)
-     sender.setTitle(isEditing ? "Done" : "Edit", for: .normal)
+     sender.title = isEditing ? "Done" : "Edit"
     
+    }*/
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        navigationItem.leftBarButtonItem = editButtonItem
     }
-    
 
     override func viewDidLoad()
     {
@@ -144,9 +149,21 @@ class ItemsViewController: UITableViewController
             
             
         }
-        let addAction = UITableViewRowAction(style: .normal, title: "ADD", handler: {_,_ in })
-        addAction.backgroundColor = UIColor.green
-        return [addAction, deleteAction]
+        let editAction = UITableViewRowAction(style: .normal, title: "EDIT")
+        {_,indexPath in
+            
+            guard let EditItemVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController
+                else
+            {
+                return
+            }
+            self.navigationController?.pushViewController(EditItemVC, animated: true)
+            let item_edit = self.items.itemsList.filter(self.filters[indexPath.section])[indexPath.row]
+            EditItemVC .editedItem = item_edit
+        }
+        
+        editAction.backgroundColor = UIColor.green
+        return [editAction, deleteAction]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

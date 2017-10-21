@@ -19,49 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="1lK-zj-r9v">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="th4-Lo-24u">
-                                    <rect key="frame" x="8" y="12" width="175.5" height="36"/>
-                                    <color key="backgroundColor" red="0.8429502358530081" green="0.93741937996062674" blue="1" alpha="0.28384524828767121" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
-                                    <state key="normal" title="Edit">
-                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="toggleEditMode:" destination="Dcq-o5-QeO" eventType="touchUpInside" id="PnA-s2-lVw"/>
-                                    </connections>
-                                </button>
-                                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgd-Sa-5tO">
-                                    <rect key="frame" x="191.5" y="12" width="175.5" height="36"/>
-                                    <color key="backgroundColor" red="0.8429502358530081" green="0.93741937996062674" blue="1" alpha="0.28384524828767121" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <state key="normal" title="Add">
-                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="addItem:" destination="Dcq-o5-QeO" eventType="touchUpInside" id="3TL-8T-5eo"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.7801412646" green="1" blue="0.98771443459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="bgd-Sa-5tO" firstAttribute="width" secondItem="th4-Lo-24u" secondAttribute="width" id="Feg-vz-vFC"/>
-                                <constraint firstItem="th4-Lo-24u" firstAttribute="leading" secondItem="xfr-y7-SIi" secondAttribute="leading" constant="8" id="XIR-fy-SZ5"/>
-                                <constraint firstItem="bgd-Sa-5tO" firstAttribute="leading" secondItem="th4-Lo-24u" secondAttribute="trailing" constant="8" id="bhf-R0-eww"/>
-                                <constraint firstItem="th4-Lo-24u" firstAttribute="centerY" secondItem="1lK-zj-r9v" secondAttribute="centerY" id="eSy-df-V7k"/>
-                                <constraint firstItem="bgd-Sa-5tO" firstAttribute="centerY" secondItem="1lK-zj-r9v" secondAttribute="centerY" id="fvO-LI-ngs"/>
-                                <constraint firstItem="xfr-y7-SIi" firstAttribute="trailing" secondItem="bgd-Sa-5tO" secondAttribute="trailing" constant="8" id="r9D-8Y-AsL"/>
-                            </constraints>
-                            <viewLayoutGuide key="safeArea" id="xfr-y7-SIi"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="buI-fE-DP4" customClass="ItemCell" customModule="HomeOwner" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="115.5" width="375" height="65"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="buI-fE-DP4" id="JM9-Bu-E96">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
@@ -105,7 +65,7 @@
                                     <outlet property="nameLabel" destination="XKR-fL-vr2" id="FG5-0w-JZc"/>
                                     <outlet property="serialLabel" destination="A12-rg-aDt" id="iJu-qG-LEC"/>
                                     <outlet property="valueLabel" destination="Rnm-bE-B7p" id="T11-a5-O1y"/>
-                                    <segue destination="s1z-za-c1m" kind="show" identifier="showItem" id="uB6-Zt-yH9"/>
+                                    <segue destination="s1z-za-c1m" kind="show" identifier="showItem" id="aRd-hK-jLD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -114,7 +74,13 @@
                             <outlet property="delegate" destination="Dcq-o5-QeO" id="wsI-Ey-95G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="8gx-8B-eDr"/>
+                    <navigationItem key="navigationItem" id="8gx-8B-eDr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8rh-Yn-BE0">
+                            <connections>
+                                <action selector="addItem:" destination="Dcq-o5-QeO" id="nE6-JR-Iwe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzH-W1-3yD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,7 +150,7 @@
                                                 <rect key="frame" x="53" y="0.0" width="306" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="s1z-za-c1m" id="qyb-QL-UDp"/>
                                                 </connections>
@@ -223,6 +189,13 @@
                             <outletCollection property="gestureRecognizers" destination="KKr-WH-i1O" appends="YES" id="xlQ-WA-Ov4"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="zKD-3Z-Y8k">
+                        <barButtonItem key="rightBarButtonItem" title="Date Edit" style="done" id="J8U-iC-niV">
+                            <connections>
+                                <segue destination="K8C-Vu-GWr" kind="show" identifier="editDate" id="A2N-N0-6No"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="Ksp-du-MDT" id="klF-dq-S5t"/>
                         <outlet property="nameEdit" destination="PpY-oj-CDx" id="VVx-0G-jPh"/>
@@ -242,7 +215,39 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1103.2" y="-85.007496251874073"/>
+            <point key="canvasLocation" x="1071" y="-85"/>
+        </scene>
+        <!--Date View Controller-->
+        <scene sceneID="kOU-a6-dTu">
+            <objects>
+                <viewController storyboardIdentifier="DateVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K8C-Vu-GWr" customClass="DateViewController" customModule="HomeOwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FMz-Ge-ivq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C1-Nm-Yq3">
+                                <rect key="frame" x="0.0" y="164" width="375" height="403"/>
+                                <date key="date" timeIntervalSinceReferenceDate="530215390.26519603">
+                                    <!--2017-10-20 18:03:10 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cli-t6-yoH" firstAttribute="bottom" secondItem="0C1-Nm-Yq3" secondAttribute="bottom" constant="100" id="AGH-W7-8VX"/>
+                            <constraint firstItem="0C1-Nm-Yq3" firstAttribute="leading" secondItem="cli-t6-yoH" secondAttribute="leading" id="nhp-Ir-Ysr"/>
+                            <constraint firstItem="0C1-Nm-Yq3" firstAttribute="top" secondItem="cli-t6-yoH" secondAttribute="top" constant="100" id="uAx-m3-MvU"/>
+                            <constraint firstItem="cli-t6-yoH" firstAttribute="trailing" secondItem="0C1-Nm-Yq3" secondAttribute="trailing" id="w5b-7G-MJt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cli-t6-yoH"/>
+                    </view>
+                    <connections>
+                        <outlet property="ItemDatePicker" destination="0C1-Nm-Yq3" id="2Q4-Fv-CgD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2a2-ty-LH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="-85.007496251874073"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VAf-No-5nU">
@@ -260,7 +265,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySl-oN-qu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452" y="-85"/>
+            <point key="canvasLocation" x="-359" y="-85"/>
         </scene>
     </scenes>
 </document>

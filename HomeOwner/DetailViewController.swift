@@ -1,5 +1,21 @@
 import UIKit
 
+extension UITextField
+{
+    @discardableResult open override func becomeFirstResponder() -> Bool
+    {
+        super.becomeFirstResponder()
+        borderStyle = .bezel
+        return true;
+    }
+    @discardableResult open override func resignFirstResponder() -> Bool
+    {
+        super.resignFirstResponder()
+        borderStyle = .roundedRect
+        return true;
+    }
+}
+
 class DetailViewController : UIViewController
 {
     
@@ -9,8 +25,14 @@ class DetailViewController : UIViewController
     @IBOutlet weak var dateLabel: UILabel!
     
     var editedItem: Item!
+    {
+        didSet
+        {
+         navigationItem.title = editedItem.name
+        }
+    }
     
-    let dateFormat =
+    static let dateFormat =
     { () -> DateFormatter in
      let df = DateFormatter()
      df.timeStyle = .none
@@ -18,7 +40,7 @@ class DetailViewController : UIViewController
      return df
     }()
     
-    let valueFormat =
+    static let valueFormat =
     { () -> NumberFormatter in
      let nf = NumberFormatter()
      nf.numberStyle = .decimal
@@ -43,7 +65,7 @@ class DetailViewController : UIViewController
         nameEdit.text = editedItem.name
         serialEdit.text = editedItem.serial
         valueEdit.text = String(editedItem.value)
-        dateLabel.text = dateFormat.string(from: editedItem.date)
+        dateLabel.text = DetailViewController.dateFormat.string(from: editedItem.date)
         
     }
     
@@ -59,7 +81,7 @@ class DetailViewController : UIViewController
         {
          editedItem.serial = serial_txt
         }
-        if let val_txt = valueEdit.text, let val = valueFormat.number(from: val_txt)
+        if let val_txt = valueEdit.text, let val = DetailViewController.valueFormat.number(from: val_txt)
         {
          editedItem.value = val.doubleValue
         }
@@ -74,6 +96,29 @@ extension DetailViewController : UITextFieldDelegate
         textField.resignFirstResponder()
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let segID = segue.identifier, segID == "editDate"
+        {
+            (segue.destination as! DateViewController).editedItem = editedItem
+            
+        }
+    }
+    
+   /* func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
+    {
+        textField.borderStyle = .bezel
+        textField.textColor = UIColor.red
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
+    {
+        textField.borderStyle = .roundedRect
+        textField.textColor = UIColor.black
+        return true
+    }*/
 }
 
 
