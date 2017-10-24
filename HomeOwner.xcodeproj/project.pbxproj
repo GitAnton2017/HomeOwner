@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A71068911F98B54A0024EFDC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71068901F98B54A0024EFDC /* ItemCell.swift */; };
 		A71068931F99116B0024EFDC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71068921F99116B0024EFDC /* DetailViewController.swift */; };
+		A75D11231F9F499600621DF3 /* ImagesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D11221F9F499600621DF3 /* ImagesCache.swift */; };
 		A7694F8F1F9B23EB003F0147 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7694F8E1F9B23EB003F0147 /* DateViewController.swift */; };
 		A7D6B4F11F938672004F093C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F01F938672004F093C /* AppDelegate.swift */; };
 		A7D6B4F31F938672004F093C /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6B4F21F938672004F093C /* ItemsViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		A71068901F98B54A0024EFDC /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		A71068921F99116B0024EFDC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A75D11221F9F499600621DF3 /* ImagesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCache.swift; sourceTree = "<group>"; };
 		A7694F8E1F9B23EB003F0147 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		A7D6B4ED1F938672004F093C /* HomeOwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeOwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D6B4F01F938672004F093C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				A71068901F98B54A0024EFDC /* ItemCell.swift */,
 				A7D6B51E1F938A11004F093C /* Item.swift */,
 				A7D6B5201F949032004F093C /* Items.swift */,
+				A75D11221F9F499600621DF3 /* ImagesCache.swift */,
 				A7D6B4F71F938672004F093C /* Assets.xcassets */,
 				A7D6B4F91F938672004F093C /* LaunchScreen.storyboard */,
 				A7D6B4FC1F938672004F093C /* Info.plist */,
@@ -256,6 +259,7 @@
 				A7D6B51F1F938A11004F093C /* Item.swift in Sources */,
 				A71068931F99116B0024EFDC /* DetailViewController.swift in Sources */,
 				A7D6B4F11F938672004F093C /* AppDelegate.swift in Sources */,
+				A75D11231F9F499600621DF3 /* ImagesCache.swift in Sources */,
 				A71068911F98B54A0024EFDC /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

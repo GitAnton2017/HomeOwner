@@ -95,7 +95,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DzC-kW-jz8">
-                                <rect key="frame" x="8" y="79" width="359" height="580"/>
+                                <rect key="frame" x="8" y="79" width="359" height="543"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qWY-p6-xcy">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
@@ -157,17 +157,24 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnB-He-HrR">
-                                        <rect key="frame" x="0.0" y="120" width="359" height="460"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UnB-He-HrR">
+                                        <rect key="frame" x="0.0" y="120" width="359" height="423"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksp-du-MDT">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="460"/>
+                                                <rect key="frame" x="129" y="0.0" width="101.5" height="21"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-Vm-9pR">
+                                                <rect key="frame" x="0.0" y="25" width="359" height="398"/>
+                                            </imageView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tkP-Vm-9pR" firstAttribute="leading" secondItem="UnB-He-HrR" secondAttribute="leading" id="aRg-Za-l5d"/>
+                                            <constraint firstItem="tkP-Vm-9pR" firstAttribute="top" secondItem="Ksp-du-MDT" secondAttribute="bottom" constant="4" id="gln-eg-r3D"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -175,14 +182,41 @@
                                     <constraint firstItem="1Ms-sW-XFt" firstAttribute="leading" secondItem="PpY-oj-CDx" secondAttribute="leading" id="bdn-7b-Z3z"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0L-Ob-dx6">
+                                <rect key="frame" x="0.0" y="629" width="375" height="38"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="x9e-T7-ru7"/>
+                                    <barButtonItem width="100" systemItem="camera" id="kFx-Ae-OxV">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="s1z-za-c1m" id="L3x-m8-36x"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UF2-lv-Z8c"/>
+                                    <barButtonItem style="plain" systemItem="stop" id="t4I-gG-yJ3">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="deletePhoto:" destination="s1z-za-c1m" id="tLT-dD-Peu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4Zl-N3-G7t"/>
+                                </items>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="DzC-kW-jz8" firstAttribute="leading" secondItem="cmt-gP-fuE" secondAttribute="leading" constant="8" id="69w-76-pfz"/>
-                            <constraint firstItem="DzC-kW-jz8" firstAttribute="bottom" secondItem="cmt-gP-fuE" secondAttribute="bottom" constant="-8" id="8lf-T1-Pdh"/>
+                            <constraint firstItem="DzC-kW-jz8" firstAttribute="bottom" secondItem="cmt-gP-fuE" secondAttribute="bottom" constant="-45" id="8lf-T1-Pdh"/>
                             <constraint firstItem="DzC-kW-jz8" firstAttribute="trailing" secondItem="cmt-gP-fuE" secondAttribute="trailing" constant="-8" id="BhF-SG-lLZ"/>
                             <constraint firstItem="DzC-kW-jz8" firstAttribute="top" secondItem="cmt-gP-fuE" secondAttribute="top" constant="15" id="RSj-fT-8f2"/>
+                            <constraint firstItem="r0L-Ob-dx6" firstAttribute="leading" secondItem="cmt-gP-fuE" secondAttribute="leading" id="Wrv-dl-y6p"/>
+                            <constraint firstItem="r0L-Ob-dx6" firstAttribute="bottom" secondItem="cmt-gP-fuE" secondAttribute="bottom" id="dFQ-FW-kMk"/>
+                            <constraint firstItem="r0L-Ob-dx6" firstAttribute="trailing" secondItem="cmt-gP-fuE" secondAttribute="trailing" id="uqF-Rh-tdG"/>
+                            <constraint firstItem="r0L-Ob-dx6" firstAttribute="top" secondItem="DzC-kW-jz8" secondAttribute="bottom" constant="7" id="vGs-lO-LpD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cmt-gP-fuE"/>
                         <connections>
@@ -198,6 +232,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="Ksp-du-MDT" id="klF-dq-S5t"/>
+                        <outlet property="itemImageView" destination="tkP-Vm-9pR" id="Y01-Rt-BMg"/>
                         <outlet property="nameEdit" destination="PpY-oj-CDx" id="VVx-0G-jPh"/>
                         <outlet property="serialEdit" destination="1Ms-sW-XFt" id="AsE-KX-ssS"/>
                         <outlet property="valueEdit" destination="KUM-rE-mNY" id="Nl4-DA-bXr"/>
@@ -215,7 +250,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1071" y="-85"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="-85.007496251874073"/>
         </scene>
         <!--Date View Controller-->
         <scene sceneID="kOU-a6-dTu">

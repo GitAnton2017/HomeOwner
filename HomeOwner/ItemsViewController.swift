@@ -4,6 +4,7 @@ class ItemsViewController: UITableViewController
 {
     
  let items = Items()
+ let images = imagesCache()
     
  let filters :  [(Item)->Bool] = [{Int($0.value)>=50}, {Int($0.value)<50}]
  let headers  = ["Items >= $50", "Items < $50"]
@@ -131,6 +132,7 @@ class ItemsViewController: UITableViewController
              {
                 print(indexPath.section, itemToDel.value, itemToDel.name)
                 self.items.itemsList.remove(at: ind)
+                self.images.deleteImage(forKey: itemToDel.imageKey)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
              }
@@ -150,7 +152,9 @@ class ItemsViewController: UITableViewController
             
         }
         let editAction = UITableViewRowAction(style: .normal, title: "EDIT")
-        {_,indexPath in
+        {_,indexPath
+            
+            in
             
             guard let EditItemVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController
                 else
@@ -159,7 +163,8 @@ class ItemsViewController: UITableViewController
             }
             self.navigationController?.pushViewController(EditItemVC, animated: true)
             let item_edit = self.items.itemsList.filter(self.filters[indexPath.section])[indexPath.row]
-            EditItemVC .editedItem = item_edit
+            EditItemVC.editedItem = item_edit
+            EditItemVC.images = self.images
         }
         
         editAction.backgroundColor = UIColor.green
@@ -172,7 +177,7 @@ class ItemsViewController: UITableViewController
      {
        let item_edit = items.itemsList.filter(filters[ip.section])[ip.row]
        (segue.destination as! DetailViewController).editedItem = item_edit
-
+       (segue.destination as! DetailViewController).images = images
      }
     }
     

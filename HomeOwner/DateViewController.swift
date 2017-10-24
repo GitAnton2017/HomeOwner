@@ -25,5 +25,6 @@ class DateViewController : UIViewController
         super.viewWillDisappear(animated)
         editedItem.date = ItemDatePicker.date
         
+        
     }
 }

@@ -24,6 +24,51 @@ class DetailViewController : UIViewController
     @IBOutlet weak var valueEdit: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var itemImageView: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
+
+    
+    @IBAction func deletePhoto(_ sender: UIBarButtonItem)
+    {
+     
+     let imageDelAC = UIAlertController(title: "Deleteting Image", message: "Are you sure you want to purge the photo for \(editedItem.name)", preferredStyle: .alert)
+     
+     let delAction = UIAlertAction(title: "DELETE", style: .destructive)
+     {
+        _ in
+        self.itemImageView.image = nil
+        self.images.deleteImage(forKey: self.editedItem.imageKey)
+     }
+     
+     let cnxAction = UIAlertAction(title: "CANCEL", style: .cancel, handler: nil)
+        
+     imageDelAC.addAction(delAction)
+     imageDelAC.addAction(cnxAction)
+     imageDelAC.preferredAction = cnxAction
+        
+     self.present(imageDelAC, animated: true, completion: nil)
+     
+    }
+    
+    @IBAction func takePhoto(_ sender: UIBarButtonItem)
+    {
+      if UIImagePickerController.isSourceTypeAvailable(.camera)
+      {
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .camera
+       
+      }
+      else
+      {
+        print ("Camera is not available!")
+        imagePicker.sourceType = .photoLibrary
+      }
+      
+     
+     present(imagePicker, animated: true, completion: nil)
+    }
+    
     var editedItem: Item!
     {
         didSet
@@ -31,6 +76,8 @@ class DetailViewController : UIViewController
          navigationItem.title = editedItem.name
         }
     }
+    
+    var images: imagesCache!
     
     static let dateFormat =
     { () -> DateFormatter in
@@ -58,6 +105,12 @@ class DetailViewController : UIViewController
     {
         view.endEditing(true)
     }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+    }
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -66,6 +119,8 @@ class DetailViewController : UIViewController
         serialEdit.text = editedItem.serial
         valueEdit.text = String(editedItem.value)
         dateLabel.text = DetailViewController.dateFormat.string(from: editedItem.date)
+        
+        itemImageView.image = images.getImage(forKey: editedItem.imageKey)
         
     }
     
@@ -88,7 +143,25 @@ class DetailViewController : UIViewController
         view.endEditing(true)
     }
 }
-
+extension DetailViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        let image_type = UIImagePickerController.isSourceTypeAvailable(.camera) ? UIImagePickerControllerEditedImage : UIImagePickerControllerOriginalImage
+        
+        guard let pickedImage = info[image_type] as? UIImage
+        else
+        {
+            print("Image not found!!!")
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        itemImageView.image = pickedImage
+        images.setImage(pickedImage, forKey: editedItem.imageKey)
+        dismiss(animated: true, completion: nil)
+    }
+}
 extension DetailViewController : UITextFieldDelegate
 {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool

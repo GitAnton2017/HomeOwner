@@ -7,6 +7,7 @@ class Item: NSObject
     var value: Double
     var serial: String?
     var date: Date
+    var imageKey: String
     
     init (_ name: String, _ value: Double, _ serial: String? = nil, _ date: Date = Date())
     {
@@ -14,6 +15,8 @@ class Item: NSObject
         self.value = value
         self.serial = serial
         self.date = date
+        
+        imageKey = UUID().uuidString
         
         super.init()
     }
