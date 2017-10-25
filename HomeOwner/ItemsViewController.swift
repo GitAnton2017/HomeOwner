@@ -2,17 +2,21 @@ import UIKit
 
 class ItemsViewController: UITableViewController
 {
-    
- let items = Items()
- let images = imagesCache()
-    
- let filters :  [(Item)->Bool] = [{Int($0.value)>=50}, {Int($0.value)<50}]
- let headers  = ["Items >= $50", "Items < $50"]
- let footers  = ["End of section >= $50", "End of section <$50"]
-    
-    @IBAction func addItem(_ sender: UIBarButtonItem)
-    {
-        let newItem = items.createItem()
+   //MARK: Project data managers
+   let items = Items()
+   let images = imagesCache()
+   //MARK: -
+ 
+   //MARK: Miscellanious arrays
+   let filters :  [(Item)->Bool] = [{Int($0.value)>=50}, {Int($0.value)<50}]
+   let headers  = ["Items >= $50", "Items < $50"]
+   let footers  = ["End of section >= $50", "End of section <$50"]
+   //MARK: -
+  
+   //MARK: IB Oulets
+   @IBAction func addItem(_ sender: UIBarButtonItem)
+   {
+        let newItem = items.addNewItem()
         let s = newItem.value>=50 ? 0 : 1
         
         if let ind = items.itemsList.filter(filters[s]).index(of: newItem)
@@ -21,9 +25,20 @@ class ItemsViewController: UITableViewController
           let ip = IndexPath(row: ind, section: s)
           tableView.insertRows(at: [ip], with: .automatic)
           tableView.reloadData()
+            
+         guard let EditItemVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController
+         else
+         {
+          return
+         }
+         self.navigationController?.pushViewController(EditItemVC, animated: true)
+         EditItemVC.editedItem = newItem
+         EditItemVC.images = self.images
         }
-    }
     
+    
+    }
+    //MARK: -
    /* @IBAction func toggleEditMode(_ sender: UIBarButtonItem)
     {
      setEditing(!isEditing, animated: true)
@@ -31,6 +46,7 @@ class ItemsViewController: UITableViewController
     
     }*/
     
+    //MARK: TVC major fuctions
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
@@ -57,7 +73,8 @@ class ItemsViewController: UITableViewController
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    
+    //MARK: -
+    //MARK: TVC delegate methods
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let newCell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
@@ -170,7 +187,8 @@ class ItemsViewController: UITableViewController
         editAction.backgroundColor = UIColor.green
         return [editAction, deleteAction]
     }
-    
+    //MARK: -
+    //MARK: VC Segue processing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
      if let segID = segue.identifier, segID == "showItem", let ip = tableView.indexPathForSelectedRow
@@ -180,6 +198,8 @@ class ItemsViewController: UITableViewController
        (segue.destination as! DetailViewController).images = images
      }
     }
+    
+    //MARK: -
     
     /*override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
     {

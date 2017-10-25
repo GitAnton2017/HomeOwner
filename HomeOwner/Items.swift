@@ -1,26 +1,21 @@
+import UIKit
 class Items
 {
- var itemsList = [Item]()
- @discardableResult func createItem()->Item
+ let itemsArchiveURL: URL
+ var itemsList: [Item]
+
+ init()
  {
-   let newItem = Item(true)
-   itemsList.append(newItem)
-   return newItem
+    let fm = FileManager.default
+    let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+    itemsArchiveURL = urls.first!.appendingPathComponent("items.archive")
+    itemsList = NSKeyedUnarchiver.unarchiveObject(withFile: itemsArchiveURL.path) as? [Item] ?? [Item]()
  }
  
- func removeItem (_ item: Item)
+ func addNewItem() -> Item
  {
-  if let ind = itemsList.index(of: item)
-  {
-   itemsList.remove(at: ind)
-  }
- }
-    
- init (_ count: Int = 0)
- {
-  for _ in 0..<count
-  {
-   createItem()
-  }
+   let item = Item()
+   itemsList.append(item)
+   return item
  }
 }

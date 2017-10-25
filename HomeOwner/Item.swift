@@ -1,15 +1,34 @@
 
 import UIKit
 
-class Item: NSObject
+class Item: NSObject, NSCoding
 {
+    func encode(with aCoder: NSCoder)
+    {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(value, forKey: "value")
+        aCoder.encode(serial, forKey: "serial")
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(imageKey, forKey: "imageKey")
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        value = aDecoder.decodeDouble(forKey: "value")
+        serial = aDecoder.decodeObject(forKey: "serial") as! String?
+        date = aDecoder.decodeObject(forKey: "date") as! Date
+        imageKey = aDecoder.decodeObject(forKey: "imageKey") as! String
+        super.init()
+    }
+    
     var name: String
     var value: Double
     var serial: String?
     var date: Date
     var imageKey: String
     
-    init (_ name: String, _ value: Double, _ serial: String? = nil, _ date: Date = Date())
+    init (_ name: String, _ value: Double = 0.00, _ serial: String? = "", _ date: Date = Date())
     {
         self.name = name
         self.value = value
@@ -40,8 +59,7 @@ class Item: NSObject
       }
       else
       {
-        self.init("", 0)
-        
+        self.init("")
       }
     }
     

@@ -32,7 +32,11 @@ class DetailViewController : UIViewController
     @IBAction func deletePhoto(_ sender: UIBarButtonItem)
     {
      
-     let imageDelAC = UIAlertController(title: "Deleteting Image", message: "Are you sure you want to purge the photo for \(editedItem.name)", preferredStyle: .alert)
+     guard let _ = itemImageView.image else {return}
+        
+     let imageDelAC = UIAlertController(title: "Deleteting Image",
+                                    message: "Are you sure you want to purge the photo for \(editedItem.name)",
+                                    preferredStyle: .alert)
      
      let delAction = UIAlertAction(title: "DELETE", style: .destructive)
      {
@@ -57,7 +61,6 @@ class DetailViewController : UIViewController
       {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .camera
-       
       }
       else
       {
@@ -115,8 +118,8 @@ class DetailViewController : UIViewController
     {
         super.viewWillAppear(animated)
     
-        nameEdit.text = editedItem.name
-        serialEdit.text = editedItem.serial
+        nameEdit.text = editedItem.name.trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        serialEdit.text = editedItem.serial?.trimmingCharacters(in: CharacterSet(charactersIn: " "))
         valueEdit.text = String(editedItem.value)
         dateLabel.text = DetailViewController.dateFormat.string(from: editedItem.date)
         
@@ -128,13 +131,21 @@ class DetailViewController : UIViewController
     {
         super.viewWillDisappear(animated)
         
-        if let name_txt = nameEdit.text, name_txt != ""
+        if let name_txt = nameEdit.text, !name_txt.isEmpty
         {
          editedItem.name = name_txt
         }
-        if let serial_txt = serialEdit.text, serial_txt != ""
+        else
+        {
+            if editedItem.name.isEmpty  {editedItem.name = " "}
+        }
+        if let serial_txt = serialEdit.text, !serial_txt.isEmpty
         {
          editedItem.serial = serial_txt
+        }
+        else
+        {
+            if (editedItem.serial?.isEmpty)! {editedItem.serial = " "}
         }
         if let val_txt = valueEdit.text, let val = DetailViewController.valueFormat.number(from: val_txt)
         {

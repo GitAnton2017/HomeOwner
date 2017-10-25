@@ -161,14 +161,14 @@
                                         <rect key="frame" x="0.0" y="120" width="359" height="423"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksp-du-MDT">
-                                                <rect key="frame" x="129" y="0.0" width="101.5" height="21"/>
+                                                <rect key="frame" x="129" y="0.0" width="101.5" height="37"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-Vm-9pR">
-                                                <rect key="frame" x="0.0" y="25" width="359" height="398"/>
+                                                <rect key="frame" x="0.0" y="41" width="359" height="382"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -250,7 +250,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1069.5999999999999" y="-85.007496251874073"/>
+            <point key="canvasLocation" x="1069.5" y="-85.5"/>
         </scene>
         <!--Date View Controller-->
         <scene sceneID="kOU-a6-dTu">
