@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 extension UITextField
 {
@@ -19,6 +20,21 @@ extension UITextField
 class DetailViewController : UIViewController
 {
     
+    var editedItem: Item!
+    {
+        didSet
+        {
+            navigationItem.title = editedItem.name
+        }
+    }
+    
+    var editedItemMO: NSManagedObject!
+    {
+        didSet
+        {
+            navigationItem.title = editedItemMO.value(forKey: "name") as? String
+        }
+    }
     @IBOutlet weak var serialEdit: UITextField!
     @IBOutlet weak var nameEdit: UITextField!
     @IBOutlet weak var valueEdit: UITextField!
@@ -71,14 +87,7 @@ class DetailViewController : UIViewController
      
      present(imagePicker, animated: true, completion: nil)
     }
-    
-    var editedItem: Item!
-    {
-        didSet
-        {
-         navigationItem.title = editedItem.name
-        }
-    }
+
     
     var images: imagesCache!
     
@@ -118,12 +127,25 @@ class DetailViewController : UIViewController
     {
         super.viewWillAppear(animated)
     
-        nameEdit.text = editedItem.name.trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        /*nameEdit.text = editedItem.name.trimmingCharacters(in: CharacterSet(charactersIn: " "))
         serialEdit.text = editedItem.serial?.trimmingCharacters(in: CharacterSet(charactersIn: " "))
         valueEdit.text = String(editedItem.value)
         dateLabel.text = DetailViewController.dateFormat.string(from: editedItem.date)
         
-        itemImageView.image = images.getImage(forKey: editedItem.imageKey)
+        itemImageView.image = images.getImage(forKey: editedItem.imageKey)*/
+        
+        nameEdit.text = (editedItemMO.value(forKey: "name") as! String).trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        
+        serialEdit.text = (editedItemMO.value(forKey: "serial") as? String)?.trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        
+        valueEdit.text = String(editedItemMO.value(forKey: "value") as! Double)
+        
+        dateLabel.text = DetailViewController.dateFormat.string(from: (editedItemMO.value(forKey: "date") as! Date))
+        
+        if let img_data = editedItemMO.value(forKey: "photo") as? Data
+        {
+         itemImageView.image = UIImage(data: img_data)
+        }
         
     }
     
@@ -133,23 +155,28 @@ class DetailViewController : UIViewController
         
         if let name_txt = nameEdit.text, !name_txt.isEmpty
         {
-         editedItem.name = name_txt
+         //editedItem.name = name_txt
+         editedItemMO.setValue(name_txt, forKey: "name")
         }
         else
         {
-            if editedItem.name.isEmpty  {editedItem.name = " "}
+          //editedItem.name = " "
+         editedItemMO.setValue(" ", forKey: "name")
         }
         if let serial_txt = serialEdit.text, !serial_txt.isEmpty
         {
-         editedItem.serial = serial_txt
+         //editedItem.serial = serial_txt
+         editedItemMO.setValue(serial_txt, forKey: "serial")
         }
         else
         {
-            if (editedItem.serial?.isEmpty)! {editedItem.serial = " "}
+          //editedItem.serial = " "
+          editedItemMO.setValue(" ", forKey: "serial")
         }
         if let val_txt = valueEdit.text, let val = DetailViewController.valueFormat.number(from: val_txt)
         {
-         editedItem.value = val.doubleValue
+         //editedItem.value = val.doubleValue
+         editedItemMO.setValue(val.doubleValue, forKey: "value")
         }
         view.endEditing(true)
     }
@@ -169,7 +196,12 @@ extension DetailViewController : UIImagePickerControllerDelegate, UINavigationCo
         }
         
         itemImageView.image = pickedImage
-        images.setImage(pickedImage, forKey: editedItem.imageKey)
+        
+        //images.setImage(pickedImage, forKey: editedItem.imageKey)
+        
+        let photo_data = UIImagePNGRepresentation(pickedImage)
+        editedItemMO.setValue(photo_data, forKey: "photo")
+        
         dismiss(animated: true, completion: nil)
     }
 }
@@ -185,8 +217,9 @@ extension DetailViewController : UITextFieldDelegate
     {
         if let segID = segue.identifier, segID == "editDate"
         {
-            (segue.destination as! DateViewController).editedItem = editedItem
+            //(segue.destination as! DateViewController).editedItem = editedItem
             
+            (segue.destination as! DateViewController).editedItemMO = editedItemMO
         }
     }
     
